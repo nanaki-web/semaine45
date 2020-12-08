@@ -1,111 +1,255 @@
-document.getElementById("contact").addEventListener("submit",function (e){
-    var erreur ;
+let form = document.querySelector('#contact');
+// console.log(form.email);
+// console.log('form.nom');
 
-    // const inputs =this ;
-    // traitement cas par cas 
-    // if (inputs["email"].value !=new RegExp("^[a-z0-9.-_]+@[a-z0-9.-]{2,}.[a-z]{2,4}$"))
-    // {
-	// 	erreur = "Adresse email incorrecte";
-	// }
-
-    // traitement générique
-    // for (var i = 0; i < inputs.length; i++)
-    // {
-	// 	console.log(inputs[i]);
-	// 	if (!inputs[i].value) {
-	// 		erreur = "Veuillez renseigner tous les champs";
-	// 		break;
-	// 	}
-	// }
-
-var nom = document.getElementById("nom");
-var prenom = document.getElementById("prenom");
-var adresse = document.getElementById("adresse");
-var postal = document.getElementById("postal");
-var ville = document.getElementById("ville");
-var tel = document.getElementById("tel");
-var email = document.getElementById("email");
-const question= document.getElementById("question");
-if ( !question.value)
+// ecouter la modification de l'email
+form.email.addEventListener('change',function()
 {
-    erreur = "Veuillez posez votre question";
-}
-
-// const emailFiltre = /^[0-9][0-9]?\/[0-9][0-9]?\/[0-9]{4}$/;
-// if (emailFiltre.test(email.value)==false)
-// {
-//     erreur = "Email incorrecte";
-// }
-// if (filtre !=(document.getElementById("email").value))
-// {
-//     erreur = "Email incorrecte";
-// }
- test = document.getElementById("cgu").checked;
-if (!test)
-{
-    erreur = "veuillez cocher la case la case";
-}
-
-if (!email.value){
-    erreur = "veuillez renseigner le champ email"
-}
-
-if (!tel.value){
-    erreur = "veuillez renseigner le champ téléphone"
-}
-
-if (!ville.value){
-    erreur = "veuillez renseigner le champ ville"
-}
-
-if (!postal.value){
-    erreur = "veuillez renseigner le champ code postal"
-}
-
-if (!adresse.value){
-    erreur = "veuillez renseigner le champ adresse"
-}
-
-const regex = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
-if (!prenom.value){
-    erreur = "veuillez renseigner le champ prénom"
-}
-
-
-
-
-    if (!nom.value)
-    {
-        erreur = "veuillez renseigner le champ nom"
-    }
-    if(regex.test(nom.value)== false)
-    {     
-        erreur = 'Format incorrect';
-    }
-
-    
-    
-
-
-
-
-cgu.addEventListener("change",function ()
-{
-    erreur.innerHTML = "Veuillez cochez la case cgu";
+    validEMail(this);
 });
 
+// ecouter la modification de  nom
+form.nom.addEventListener('change',function()
+{
+    validNom(this);
+});
 
-if (erreur)
+// ecouter la modification de  prenom
+form.prenom.addEventListener('change',function()
+{
+    validPrenom(this);
+});
+
+// ecouter la modification de  code postale
+form.postal.addEventListener('change',function()
+{
+    validPostal(this);
+});
+
+// ecouter la modification de  ville
+form.ville.addEventListener('change',function()
+{
+    validVille(this);
+});
+
+// ecouter la modification de  telephone
+form.tel.addEventListener('change',function()
+{
+    validTel(this);
+});
+
+// ecouter la modification de  question
+form.cgu.addEventListener('change',function()
+{
+    validCgu(this);
+});
+
+// ecouter la soumission du formulaire
+form.addEventListener('submit',function(e)
 {
     e.preventDefault();
-    document.getElementById("erreur").innerHTML = erreur ;
-    return false;
-}
-else
-{
-    alert("formulaire envoyé !");
-}
-
-
+    e.preventDefault();
+    if(validEMail(form.email) && validNom(form.nom) && validPrenom(form.prenom) && validPostal(form.postal) && validVille(form.ville) && validTel(form.tel) && validCgu(form.cgu) )
+    {
+        form.submit();
+        // console.log('email valide');
+    }
+    // else{
+    //     console.log('email non valide');
+    // }
+    
 });
 
+
+
+// **********Validation Email*******************************************
+const validEMail = function (inputEmail)
+{
+    // creation de la reg exp pour validation email
+    let emailRegExp = new RegExp('^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$', 'g');
+    
+
+    // let testEmail = emailRegExp.test(inputEmail.value);
+    // recuperation de la balise small
+    let small = inputEmail.nextElementSibling;
+    // console.log(testEmail) ;
+    // on test l'expression reguliere
+    if(emailRegExp.test(inputEmail.value))
+    {
+         small.innerHTML = 'Adresse Valide';
+         small.classList.remove('text-danger');
+         small.classList.add('text-success');
+         return true;
+
+    }
+    else
+    {
+        small.innerHTML = 'Adresse Non Valide';
+        small.classList.remove('text-success');
+        small.classList.add('text-danger');
+        return false;
+    }
+    
+};
+
+
+// **********Validation nom*******************************************
+const validNom = function (inputNom)
+{
+   // creation de la reg exp pour validation nom
+   let nomRegExp = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/g;
+   // recuperation de la balise small
+   let small = inputNom.nextElementSibling;
+   // on test l'expression reguliere
+   if(nomRegExp.test(inputNom.value))
+   {
+        small.innerHTML = 'Nom Valide';
+        small.classList.remove('text-danger');
+        small.classList.add('text-success');
+        return true;
+
+   }
+   else
+   {
+       small.innerHTML = 'Nom Non Valide';
+       small.classList.remove('text-success');
+       small.classList.add('text-danger');
+       return false;
+   }
+   
+};
+
+// **********Validation prenom******************************************
+const validPrenom = function (inputPrenom)
+{
+   // creation de la reg exp pour validation nom
+   let prenomRegExp = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/g;
+   // recuperation de la balise small
+   let small = inputPrenom.nextElementSibling;
+   // on test l'expression reguliere
+   if(prenomRegExp.test(inputPrenom.value))
+   {
+        small.innerHTML = 'Nom Valide';
+        small.classList.remove('text-danger');
+        small.classList.add('text-success');
+        return true;
+
+   }
+   else
+   {
+       small.innerHTML = 'Nom Non Valide';
+       small.classList.remove('text-success');
+       small.classList.add('text-danger');
+       return false;
+   }
+   
+};
+
+
+// **********Validation code postale*******************************************
+const validPostal= function (inputPostal)
+{
+   // creation de la reg exp pour validation nom
+   let postalRegExp = /^([0-9]{5})$/g;
+  
+   // recuperation de la balise small
+   let small = inputPostal.nextElementSibling;
+   // on test l'expression reguliere
+   if(postalRegExp.test(inputPostal.value))
+   {
+        small.innerHTML = 'Adresse postale Valide';
+        small.classList.remove('text-danger');
+        small.classList.add('text-success');
+        return true;
+
+   }
+   else
+   {
+       small.innerHTML = 'Adresse postale Non Valide';
+       small.classList.remove('text-success');
+       small.classList.add('text-danger');
+       return false;
+   }
+   
+};
+
+// **********Validation ville*******************************************
+const validVille= function (inputVille)
+{
+   // creation de la reg exp pour validation nom
+   let villeRegExp = /^[A-Za-z]+$/g;
+  
+   // recuperation de la balise small
+   let small = inputVille.nextElementSibling;
+   // on test l'expression reguliere
+   if(villeRegExp.test(inputVille.value))
+   {
+        small.innerHTML = 'Ville Valide';
+        small.classList.remove('text-danger');
+        small.classList.add('text-success');
+        return true;
+
+   }
+   else
+   {
+       small.innerHTML = 'Ville Non Valide';
+       small.classList.remove('text-success');
+       small.classList.add('text-danger');
+       return false;
+   }
+   
+};
+
+// **********Validation telephone*******************************************
+const validTel= function (inputTel)
+{
+   // creation de la reg exp pour validation nom
+   let telRegExp = /^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/g;
+  
+   // recuperation de la balise small
+   let small = inputTel.nextElementSibling;
+   // on test l'expression reguliere
+   if(telRegExp.test(inputTel.value))
+   {
+        small.innerHTML = 'Telephone Valide';
+        small.classList.remove('text-danger');
+        small.classList.add('text-success');
+        return true;
+
+   }
+   else
+   {
+       small.innerHTML = 'Telephone Non Valide';
+       small.classList.remove('text-success');
+       small.classList.add('text-danger');
+       return false;
+   }
+   
+};
+
+// **********Validation Cgu*******************************************
+const validCgu= function (inputCgu)
+{
+   // creation de la reg exp pour validation question
+   let cguRegExp = /^[\w+\s]/g;
+  
+   // recuperation de la balise small
+   let small = inputCgu.nextElementSibling;
+   // on test l'expression reguliere
+   if(cguRegExp.test(inputCgu.value))
+   {
+        small.innerHTML = ' Veuillez cochez la case cgu';
+        small.classList.remove('text-danger');
+        small.classList.add('text-success');
+        return false;
+
+   }
+   else
+   {
+       small.innerHTML = 'la case est coché';
+       small.classList.remove('text-success');
+       small.classList.add('text-danger');
+       return true;
+   }
+   
+};
