@@ -11,32 +11,29 @@
     <title>Accueil</title>
 </head>
 <body>
-
+<div class="container-fluid">
   <!-- navigation-->
    <!-- Image and text -->
    
    <nav class="navbar-expand-md navbar-dark bg-dark">
-   <a class="navbar-brand" href="#">
-    <img src="annexes/wazaa_logo.png" width="40" height="40" class="d-inline-block align-top " alt="" loading="lazy">
-    Wazaa Immo
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-  <ul class="navbar-nav  ">
-      <li class="nav-item ">
-        <a class="nav-link" href="index.php">Accueil</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Nos biens en ventes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="contact.php">Contact</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-    </ul>
-    </div>
+      <a class="navbar-brand" href="#">
+        <img src="annexes/wazaa_logo.png" width="40" height="40" class="d-inline-block align-top " alt="" loading="lazy">
+        Wazaa Immo
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav  ">
+            <li class="nav-item ">
+              <a class="nav-link" href="index.php">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.php">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+        </ul>
+      </div>
     </nav>
