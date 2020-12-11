@@ -29,8 +29,10 @@ include ("entete.php");
                     <div class="mt-0"><?=$annonces ->an_ref?></div>
                     <div class="mt-0">Description : </div>
                     <div class="mt-0"><?=$annonces ->an_titre?></div>
-                    <div><?='Localisation : '. $annonces ->an_local ?></div>
-                    <div><?='Prix : '. $annonces ->an_prix.'Euros'?></div>
+                    <div class="mt-0">Localisation : </div>
+                    <div class="mt-0"><?= $annonces ->an_local ?></div>
+                    <div class="mt-0">Prix: </div>
+                    <div class="mt-0"><?= $annonces ->an_prix.'Euros'?></div>
                     <a href="detail.php?an_id=<?=$annonces ->an_id?>" class="btn btn-primary w-100">Détail</a>
                 </div>
             </div>

@@ -145,6 +145,7 @@ include ("entete.php");
           <a href="index.php" class="btn btn-outline-primary w-100" role="button" aria-pressed="true">Retour</a>
           <a href="#" class="btn btn-outline-warning w-100" role="button" aria-pressed="true">Modification</a>
           <a href="#" class="btn btn-outline-danger w-100 " role="button" aria-pressed="true">Supprimer</a>
+          <a href="contact.php" class="btn btn-outline-info w-100 " role="button" aria-pressed="true">Formulaire de contact</a>
         </div>
     </div>
 </form>
