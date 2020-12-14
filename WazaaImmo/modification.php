@@ -7,11 +7,11 @@ include("entete.php");
 <!-- **********************************************Barre ajout annonce*********************************************************************** -->
 <div class="row shadow mt-3 mb-3 mx-0 p-3 rounded bg-dark">
   <div class="col-md-2 text white-50 text-right"></div>
-  <div class="col-md-8 h2 text-white-50 text-center">Ajouter une annonce</div>
+  <div class="col-md-8 h2 text-white-50 text-center">Modifier une annonce</div>
 </div>
 <!-- *************************************************formulaire******************************************************************* -->
 
-<form action = "annonce_ajout_script" method = "post"  enctype="multipart/form-data >
+<form action = "annonce_script_modification" method = "post"  enctype="multipart/form-data >
     <div class="form-group">
     Type d'offre : <br>
 <!-- bouton radio achat/location/-->
@@ -235,8 +235,8 @@ Nombre de pièce(s) : <br>
 
     <!-- Date d’ajout -->
     <div class="form-group">
-        <label for="dateAjout">Date d'ajout</label>
-        <input type="date" class="form-control" id="dateAjout" name="dateAjout" aria-describedby="" placeholder="Entrer votre prix">
+        <label for="dateModification">Date de modification :</label>
+        <input type="date" class="form-control" id="dateModification" name="dateModification" aria-describedby="" placeholder="Entrer votre prix">
     </div>
     <!-- bouton submit -->
     <input class="btn btn-primary" id = " idEnvoyer " type="submit" value="enregistrer">

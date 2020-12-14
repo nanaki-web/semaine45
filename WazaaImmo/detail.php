@@ -78,63 +78,63 @@ include ("entete.php");
                 <div class="form-group">
                             <div class="mb-3">
                                 <label for="offre" class="form-label">Offre</label>
-                                <input type="text" class="form-control" id="offre" name="offre" placeholder="<?php echo $annonces->an_offre ?>">
+                                <input type="text" class="form-control" id="offre" name="offre" disabled  placeholder="<?php echo $annonces->an_offre ?>">
                             </div>
                         </div>
                         <!-- type de bien -->
                         <div class="form-group">
                             <label for="type" class="form-label">Type de bien</label>
-                            <input type="text" class="form-control" id="type" name="type" placeholder="<?php echo $annonces->an_type ?>">
+                            <input type="text" class="form-control" id="type" name="type" disabled placeholder="<?php echo $annonces->an_type ?>">
                         </div>
                         <!--Nombre de pièces  -->
                         <div class="form-group">
                             <label for="piece" class="form-label">Nombre de pièces</label>
-                            <input type="text" class="form-control" id="piece" name="piece" placeholder="<?php echo $annonces->an_pieces ?>">
+                            <input type="text" class="form-control" id="piece" name="piece" disabled placeholder="<?php echo $annonces->an_pieces ?>">
                         </div>
                         <!--Référence  -->
                         <div class="form-group">
                             <label for="ref" class="form-label">Référence</label>
-                            <input type="text" class="form-control" id="ref" name="ref" placeholder="<?php echo $annonces->an_ref ?>">
+                            <input type="text" class="form-control" id="ref" name="ref" disabled placeholder="<?php echo $annonces->an_ref ?>">
                         </div>
                         <!--Titre  -->
                         <div class="form-group">
                             <label for="titre" class="form-label">Titre</label>
-                            <input type="text" class="form-control" id="titre" name="titre" placeholder="<?php echo $annonces->an_titre ?>">
+                            <input type="text" class="form-control" id="titre" name="titre" disabled placeholder="<?php echo $annonces->an_titre ?>">
                         </div>
                         <!--Description -->
                         <div class="form-group">
                             <label for="descript" class="form-label">Description</label>
-                            <input type="text" class="form-control" id="descript" name="descript" placeholder="<?php echo $annonces->an_description ?>">
+                            <input type="text" class="form-control" id="descript" name="descript" disabled placeholder="<?php echo $annonces->an_description ?>">
                         </div>
                         <!--Localisation -->
                         <div class="form-group">
                             <label for="localisation" class="form-label">Localisation</label>
-                            <input type="text" class="form-control" id="localisation" name="localisation" placeholder="<?php echo $annonces->an_local ?>">
+                            <input type="text" class="form-control" id="localisation" name="localisation" disabled placeholder="<?php echo $annonces->an_local ?>">
                         </div>
                         <!--surface habitable -->
                         <div class="form-group">
                             <label for="habitable" class="form-label">Surface habitable</label>
-                            <input type="text" class="form-control" id="habitable" name="habitable" placeholder="<?php echo $annonces->an_surf_hab ?>">
+                            <input type="text" class="form-control" id="habitable" name="habitable" disabled placeholder="<?php echo $annonces->an_surf_hab ?>">
                         </div>
                         <!--Surface Total -->
                         <div class="form-group">
                             <label for="total" class="form-label">Surface Total</label>
-                            <input type="text" class="form-control" id="total" name="total" placeholder="<?php echo $annonces->an_surf_tot?>">
+                            <input type="text" class="form-control" id="total" name="total" disabled placeholder="<?php echo $annonces->an_surf_tot?>">
                         </div>
                         <!-- Prix -->
                         <div class="form-group">
                             <label for="prix" class="form-label">Prix</label>
-                            <input type="text" class="form-control" id="prix" name="prix" placeholder="<?php echo $annonces->an_prix?>">
+                            <input type="text" class="form-control" id="prix" name="prix" disabled placeholder="<?php echo $annonces->an_prix?>">
                         </div>
                         <!-- diagnotique -->
                         <div class="form-group">
                             <label for="diagnos" class="form-label">Diagnostique</label>
-                            <input type="text" class="form-control" id="diagnos" name="diagnos" placeholder="<?php echo $annonces->an_diagnostic ?>">
+                            <input type="text" class="form-control" id="diagnos" name="diagnos" disabled placeholder="<?php echo $annonces->an_diagnostic ?>">
                         </div>
                         <!-- Date d'ajout -->
                         <div class="form-group">
                             <label for="date_ajout" class="form-label">Date d'ajout</label>
-                            <input type="text" class="form-control" id="date_ajout" name="date_ajout" placeholder="<?php echo $annonces->an_d_ajout ?>">
+                            <input type="text" class="form-control" id="date_ajout" name="date_ajout" disabled placeholder="<?php echo $annonces->an_d_ajout ?>">
                         </div>
 
                    
@@ -143,8 +143,8 @@ include ("entete.php");
         </div>
         <div class="card-footer p-0 d-flex flex-row">
           <a href="index.php" class="btn btn-outline-primary w-100" role="button" aria-pressed="true">Retour</a>
-          <a href="#" class="btn btn-outline-warning w-100" role="button" aria-pressed="true">Modification</a>
-          <a href="#" class="btn btn-outline-danger w-100 " role="button" aria-pressed="true">Supprimer</a>
+          <a href="modification.php?an_id=<?=$annonces ->an_id?>" class="btn btn-outline-warning w-100" role="button" aria-pressed="true">Modification</a>
+          <a href="supprimer.php" class="btn btn-outline-danger w-100 " role="button" aria-pressed="true">Supprimer</a>
           <a href="contact.php" class="btn btn-outline-info w-100 " role="button" aria-pressed="true">Formulaire de contact</a>
         </div>
     </div>
